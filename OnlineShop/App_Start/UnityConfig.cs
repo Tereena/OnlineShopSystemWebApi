@@ -14,6 +14,7 @@ namespace OnlineShop
 
             container.RegisterType<IProductService, ProductService>();
             container.RegisterType<ICustomerService, CustomerService>();
+            container.RegisterType<ICartService, CartService>();
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers

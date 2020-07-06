@@ -8,7 +8,7 @@ namespace OnlineShop.Service
 {
     public class ProductService : IProductService
     {
-        static List<Product> products = new List<Product>()
+        public static List<Product> products = new List<Product>()
         {
             new Product { ProductId = 1, ProductName = "Samsung", ProductCost = 10000 },
             new Product { ProductId = 2, ProductName = "Nokia", ProductCost = 1000, },

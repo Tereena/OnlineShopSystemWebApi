@@ -19,11 +19,19 @@ namespace OnlineShop.Controllers
             _customerService = customerService;
         }
         // GET: api/Customer
-        public List<Customer> Get()
-        {
-            return _customerService.GetCustomer();
-        }
+        //public List<Customer> Get()
+        //{
+        //    return _customerService.GetCustomer();
+        //}
 
+        public IHttpActionResult Get()
+        {
+            if(_customerService.GetCustomer() == null)
+            {
+                return BadRequest();
+            }
+            return Ok(this._customerService.GetCustomer());
+        }
         // GET: api/Customer/5
         public Customer Get(string id)
         {
