@@ -17,21 +17,21 @@ namespace OnlineShop.Controllers
             _cartService = cartService;
         }
         // GET: api/Cart
-        public List<Product> Get()
+        public List<Cart> Get(Guid id)
         {
-            return _cartService.ViewCart();
+            return _cartService.ViewCart(id);
         }
 
         // GET: api/Cart/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST: api/Cart
-        public Product Add(int id)
+        public void Add(Guid id,int productid)
         {
-            return _cartService.AddToCart(id);
+            _cartService.AddToCart(id,productid);
         }
 
         // PUT: api/Cart/5
@@ -40,8 +40,9 @@ namespace OnlineShop.Controllers
         }
 
         // DELETE: api/Cart/5
-        public void Delete(int id)
+        public void Delete(Guid id,int productid)
         {
+            _cartService.DeleteCart(id,productid);
         }
     }
 }

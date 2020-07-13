@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Service
 {
-    public interface ICartService
+    public interface IEmployeeService
     {
-        List<Cart> ViewCart(Guid id);
-        void AddToCart(Guid id, int productid);
-        void DeleteCart(Guid id,int productid);
+        Employee Login(string name, string password);
     }
 }

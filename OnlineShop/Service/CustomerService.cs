@@ -13,7 +13,7 @@ namespace OnlineShop.Service
             new Customer { FullName = "Tereena", Password = "tereena", Email = "tereena@gmail.com", PhoneNumber = 705665748, Address = "Chittoor" },
             new Customer { FullName = "Terna", Password = "terna", Email = "terna@gmail.com", PhoneNumber = 705748, Address = "Chittoor" },
         };
-
+        public static List<Guid> CustomerUniqueIds = new List<Guid>();
         //public CustomerService()
         //{
         //    customers.Add(new Customer());
@@ -21,6 +21,10 @@ namespace OnlineShop.Service
         //}
         public List<Customer> GetCustomer()
         {
+            if(customers.Count == 0)
+            {
+                return null;
+            }
             return customers;
         }
 
@@ -36,11 +40,17 @@ namespace OnlineShop.Service
 
         public Customer Login(string username, string password)
         {
+           // Guid invalid = new Guid();
+            Customer cus = null;
             foreach (var user in customers)
             {
                 if ((username == user.FullName) && (password == user.Password))
                 {
-                    return user;
+                    cus = user;
+                    Guid id = user.CustomerUniqueId;
+                    CustomerUniqueIds.Add(id);
+                    //return customer;
+                    return cus;
                 }
             }
             return null;
